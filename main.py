@@ -9,6 +9,9 @@ def create_app():
     app.config['SQALCHEMY_DATABASE_URI'] = os.environ.get('DATABASE_URL')
     # look to add config file?
 
-    db = SQLAlchemy(app)
+    db.init_app(app)
+    ma.init_app(app)
+
+    # app.register_blueprint()
 
     return app
