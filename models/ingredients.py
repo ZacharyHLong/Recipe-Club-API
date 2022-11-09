@@ -1,25 +1,26 @@
 from init import db, ma
 from marshmallow import fields
 
-class Ingredient:
+
+class Ingredient(db.Model):
     __tablename__= "ingredients"
 
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String, nullable=False)
 
-
-class Measurement:
-    __tablename__= "measurements"
-
-    id = db.Column(db.Integer, primary_key=True)
-    measurement = db.Column(db.String(50))
+    ingredient_lists = db.relationship("IngredientList", back_populates="ingredients")
 
 
-class IngredientList:
+
+class IngredientList(db.Model):
     __tablename__= "ingredient_lists"
 
     id = db.Column(db.Integer, primary_key=True)
     measurement = db.Column(db.String)
-    ingredient_id = db.Column(db.Integer, db.ForeignKey("ingredient.id"), nullable=False)
 
-    ingredient = db.relationship('Ingredient', back_populates='ingredient lists')
+    #foreign keys
+    ingredient_id = db.Column(db.Integer, db.ForeignKey("ingredients.id"), nullable=False)
+
+    # back populates
+    ingredients = db.relationship("Ingredient", back_populates="ingredient_list")
+    recipes = db.relationship("Recipe", back_populates="ingredient_lists")
