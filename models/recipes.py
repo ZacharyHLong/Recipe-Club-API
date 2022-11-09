@@ -11,5 +11,5 @@ class Recipe:
     process = db.Column(db.Text, nullable=False)
     time_created = db.Column(db.#
 
-    ingredientlist = db.relationship('Ingredient', back_populates='ingredient lists')
+    ingredient_list = db.relationship('Ingredient', back_populates='ingredient lists')
     #add FK - user id

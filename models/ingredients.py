@@ -16,11 +16,10 @@ class Measurement:
 
 
 class IngredientList:
-    __tablename__= "ingredient lists"
+    __tablename__= "ingredient_lists"
 
     id = db.Column(db.Integer, primary_key=True)
-    measurement_id = db.Column(db.Integer, db.ForeignKey("measurement.id"), nullable=False)
+    measurement = db.Column(db.String)
     ingredient_id = db.Column(db.Integer, db.ForeignKey("ingredient.id"), nullable=False)
 
-    measurement = db.relationship('Measurement', back_populates='ingredient lists')
     ingredient = db.relationship('Ingredient', back_populates='ingredient lists')
