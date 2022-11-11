@@ -1,5 +1,5 @@
 from flask import Blueprint
-from init import db
+from init import db, bcrypt
 
 
 
@@ -16,3 +16,11 @@ def create_db():
 def drop_db():
     db.drop_all()
     print("Tables dropped")
+
+@db_commands.cli.command('seed')
+def seed_db():
+    users = [
+        User(
+            
+        )
+    ]
