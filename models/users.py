@@ -9,10 +9,10 @@ class User(db.Model):
     password = db.Column(db.String, nullable=False)
     is_admin = db.Column(db.Boolean, default=False)
 
-    cookbook_libraries = db.relationship("CookbookLibrary", back_populates="user", cascade="all, delete")
-    cookbooks = db.relationship("Cookbook", back_populates="user", cascade="all, delete")
     recipes = db.relationship("Recipe", back_populates="user", cascade="all, delete")
 
 
 class UserSchema(ma.Schema):
-    pass
+    
+    class Meta:
+        fields = ('id', 'username', 'password', 'is_admin', 'recipes')

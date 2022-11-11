@@ -18,15 +18,9 @@ class Recipe(db.Model):
     # deletes recipe list if recipe is deleted (cross-check)!!!
     user = db.relationship("User", back_populates="recipes")
     ingredient_lists = db.relationship("IngredientList", back_populates="recipe", cascade="all, delete")
-    recipe_lists = db.relationship("RecipeList", back_populates="recipes")
 
 
-class RecipeList(db.Model):
-    __tablename__ = "recipe_lists"
-
-    id = db.Column(db.Integer, primary_key=True)
-    measurement = db.Column(db.String(50))
-    recipe_id = db.Column(db.Integer, db.ForeignKey("recipes.id"), nullable=False)
-
-    recipes = db.relationship("Recipe", back_populates="recipe_list")
-    cookbook = db.relationship("Cookbook", back_populates="recipe_lists")
+class RecipeSchema(ma.Schema):
+    
+    class Meta:
+        fields = ('id', 'recipe_name', 'preparation_time', 'cooking_time', 'process', 'date_created', 'user_id', 'ingredient_list_id')
