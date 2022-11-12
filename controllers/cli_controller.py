@@ -25,24 +25,28 @@ def drop_db():
 def seed_db():
     users = [
         User(
+            id = 0,
             username = "HEADCHEF",
             password = bcrypt.generate_password_hash("password123").decode("utf-8"),
             is_admin = True
         ),
         
         User(
+            id = 1,
             username = "JiroDreams",
             password = bcrypt.generate_password_hash("sharpen").decode("utf-8"),
             is_admin = False
         ),
 
         User(
+            id = 2,
             username = "Hells_Kitchen",
             password = bcrypt.generate_password_hash("gordonramsey").decode("utf-8"),
             is_admin = False
         ),
 
         User(
+            id = 3,
             username = "metalfingers",
             password = bcrypt.generate_password_hash("calamusroot").decode("utf-8"),
             is_admin = False
@@ -63,7 +67,7 @@ def seed_db():
             servings = 12,
             process = "In a Dutch oven, cook the beef, sausage, onions and garlic over medium heat until meat is no longer pink; drain. Transfer to a 5-qt. slow cooker. Stir in the tomatoes, tomato paste, water, sugar, Worcestershire sauce, oil and seasonings. Cook, covered, on low 8-10 hours. Discard bay leaves. Serve with spaghetti.",
             date_created = date.today(),
-            user_id = users[2],
+            user = users[2],
         ),
         Recipe(
             id = 1001,
@@ -73,25 +77,24 @@ def seed_db():
             servings = 4,
             process = "Put a large pot of salted water on to boil (1 tablespoon salt for every 2 quarts of water). While the water is coming to a boil, heat the olive oil or butter in a large sauté pan over medium heat. Add the bacon or pancetta and cook slowly until crispy. Add the garlic (if using) and cook another minute, then turn off the heat and put the pancetta and garlic into a large bowl. n a small bowl, beat the eggs and mix in about half of the cheese. Once the water has reached a rolling boil, add the dry pasta, and cook, uncovered, at a rolling boil.  When the pasta is al dente (still a little firm, not mushy), use tongs to move it to the bowl with the bacon and garlic. Let it be dripping wet. Reserve some of the pasta water. Move the pasta from the pot to the bowl quickly, as you want the pasta to be hot. It's the heat of the pasta that will heat the eggs sufficiently to create a creamy sauce. Toss everything to combine, allowing the pasta to cool just enough so that it doesn't make the eggs curdle when you mix them in. (That's the tricky part.) Add the beaten eggs with cheese and toss quickly to combine once more. Add salt to taste. Add some pasta water back to the pasta to keep it from drying out. Serve.",
             date_created = date.today(),
-            user_id = users[1],
+            user = users[1],
         ),
         Recipe(
-            id = 1001,
+            id = 1002,
             recipe_name = "Classic Bacon and Eggs",
             preparation_time = "10 mins",
             cooking_time = "10 mins",
             servings = 4,
             process = "Fry bacon in a pan on medium-low flame until they are crispy. Transfer them into a plate. Use the same pan to cook eggs. Crack eggs in the pan and cook them as you like; sunny side up. Cover the pan so that the egg cooks properly. Add seasoning and garnish with chopped fresh parsley. Serve bacon and eggs hot.",
             date_created = date.today(),
-            user_id = users[3],
+            user = users[1],
         )
     ]
 
     db.session.add_all(recipes)
     db.session.commit()
-
-
     print("Recipes have been seeded")
+
     ingredients = [
         # 0-9
         Ingredient(
@@ -217,151 +220,151 @@ def seed_db():
     ingredient_lists = [
     # spaghetti
         IngredientList(
-            recipe_id = recipes[1000],
+            recipe = recipes[0],
             measurement = "500 grams",
-            ingredient_id = ingredients[0]
+            ingredients = ingredients[0]
         ),
         IngredientList(
-            recipe_id = recipes[1000],
+            recipe = recipes[0],
             measurement = "5",
-            ingredient_id = ingredients[1]
+            ingredients = ingredients[1]
         ),
         IngredientList(
-            recipe_id = recipes[1000],
+            recipe = recipes[0],
             measurement = "4 medium",
-            ingredient_id = ingredients[2]
+            ingredients = ingredients[2]
         ),
         IngredientList(
-            recipe_id = recipes[1000],
+            recipe = recipes[0],
             measurement = "4 cans (400ml)",
-            ingredient_id = ingredients[3]
+            ingredients = ingredients[3]
         ),
         IngredientList(
-            recipe_id = recipes[1000],
+            recipe = recipes[0],
             measurement = "150 grams",
-            ingredient_id = ingredients[4]
+            ingredients = ingredients[4]
         ),
         IngredientList(
-            recipe_id = recipes[1000],
+            recipe = recipes[0],
             measurement = "1/2 cup",
-            ingredient_id = ingredients[6]
+            ingredients = ingredients[6]
         ),
         IngredientList(
-            recipe_id = recipes[1000],
+            recipe = recipes[0],
             measurement = "8",
-            ingredient_id = ingredients[5]
+            ingredients = ingredients[5]
         ),
         IngredientList(
-            recipe_id = recipes[1000],
+            recipe = recipes[0],
             measurement = "1/4 cup",
-            ingredient_id = ingredients[7]
+            ingredients = ingredients[7]
         ),
         IngredientList(
-            recipe_id = recipes[1000],
+            recipe = recipes[0],
             measurement = "1/4 cup",
-            ingredient_id = ingredients[8]
+            ingredients = ingredients[8]
         ),
         IngredientList(
-            recipe_id = recipes[1000],
+            recipe = recipes[0],
             measurement = "1 tablespoon",
-            ingredient_id = ingredients[9]
+            ingredients = ingredients[9]
         ),
         IngredientList(
-            recipe_id = recipes[1000],
+            recipe = recipes[0],
             measurement = "1/4 cup minced",
-            ingredient_id = ingredients[10]
+            ingredients = ingredients[10]
         ),
         IngredientList(
-            recipe_id = recipes[1000],
+            recipe = recipes[0],
             measurement = "4",
-            ingredient_id = ingredients[11]
+            ingredients = ingredients[11]
         ),
         IngredientList(
-            recipe_id = recipes[1000],
+            recipe = recipes[0],
             measurement = "1 teaspoon",
-            ingredient_id = ingredients[12]
+            ingredients = ingredients[12]
         ),     
         IngredientList(
-            recipe_id = recipes[1000],
+            recipe = recipes[0],
             measurement = "1 teaspoon",
-            ingredient_id = ingredients[13]
+            ingredients = ingredients[13]
         ),    
         IngredientList(
-            recipe_id = recipes[1000],
+            recipe = recipes[0],
             measurement = "400 grams",
-            ingredient_id = ingredients[14]
+            ingredients = ingredients[14]
         ),    
         IngredientList(
-            recipe_id = recipes[1000],
+            recipe = recipes[0],
             measurement = "1 tablespoon",
-            ingredient_id = ingredients[15]
+            ingredients = ingredients[15]
         ),    
         # carbonara
         IngredientList(
-            recipe_id = recipes[1001],
+            recipe = recipes[1],
             measurement = "1 tablespoon",
-            ingredient_id = ingredients[19]
+            ingredients = ingredients[19]
         ),    
         IngredientList(
-            recipe_id = recipes[1001],
+            recipe = recipes[1],
             measurement = "200 grams",
-            ingredient_id = ingredients[18]
+            ingredients = ingredients[18]
         ),    
         IngredientList(
-            recipe_id = recipes[1001],
+            recipe = recipes[1],
             measurement = "2",
-            ingredient_id = ingredients[5]
+            ingredients = ingredients[5]
         ),    
         IngredientList(
-            recipe_id = recipes[1001],
+            recipe = recipes[1],
             measurement = "3 or 4",
-            ingredient_id = ingredients[16]
+            ingredients = ingredients[16]
         ),    
         IngredientList(
-            recipe_id = recipes[1001],
+            recipe = recipes[1],
             measurement = "1 cup",
-            ingredient_id = ingredients[17]
+            ingredients = ingredients[17]
         ),    
         IngredientList(
-            recipe_id = recipes[1001],
+            recipe = recipes[1],
             measurement = "400 grams",
-            ingredient_id = ingredients[14]
+            ingredients = ingredients[14]
         ),
         IngredientList(
-            recipe_id = recipes[1001],
+            recipe = recipes[1],
             measurement = "1 pinch",
-            ingredient_id = ingredients[12]
+            ingredients = ingredients[12]
         ),
         IngredientList(
-            recipe_id = recipes[1001],
+            recipe = recipes[1],
             measurement = "8 good cracks",
-            ingredient_id = ingredients[13]
+            ingredients = ingredients[13]
         ),    
     # bacon and eggs
         IngredientList(
-            recipe_id = recipes[1002],
+            recipe = recipes[2],
             measurement = "8",
-            ingredient_id = ingredients[16]
+            ingredients = ingredients[16]
         ),
         IngredientList(
-            recipe_id = recipes[1002],
+            recipe = recipes[2],
             measurement = "150 grams",
-            ingredient_id = ingredients[18]
+            ingredients = ingredients[18]
         ),
         IngredientList(
-            recipe_id = recipes[1002],
+            recipe = recipes[2],
             measurement = "1/4 cup",
-            ingredient_id = ingredients[10]
+            ingredients = ingredients[10]
         ),
         IngredientList(
-            recipe_id = recipes[1002],
+            recipe = recipes[2],
             measurement = "to taste",
-            ingredient_id = ingredients[12]
+            ingredients = ingredients[12]
         ),  
         IngredientList(
-            recipe_id = recipes[1002],
+            recipe = recipes[2],
             measurement = "to taste",
-            ingredient_id = ingredients[13]
+            ingredients = ingredients[13]
         )       
     ]
     db.session.add_all(ingredient_lists)

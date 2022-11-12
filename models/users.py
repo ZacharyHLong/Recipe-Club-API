@@ -13,6 +13,6 @@ class User(db.Model):
 
 
 class UserSchema(ma.Schema):
-    
+    recipes = fields.List(fields.Nested('RecipeSchema', exclude=['user']))
     class Meta:
         fields = ('id', 'username', 'password', 'is_admin', 'recipes')

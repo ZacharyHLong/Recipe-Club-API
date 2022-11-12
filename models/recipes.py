@@ -18,10 +18,13 @@ class Recipe(db.Model):
 
     # deletes recipe list if recipe is deleted (cross-check)!!!
     user = db.relationship("User", back_populates="recipes")
-    ingredient_lists = db.relationship("IngredientList", back_populates="recipes", cascade="all, delete")
+    ingredient_lists = db.relationship("IngredientList", back_populates="recipe", cascade="all, delete")
 
 
 class RecipeSchema(ma.Schema):
-    
+    user = fields.Nested('UserSchema', only=['username'])
+    ingredient_lists = fields.List(fields.Nested('IngredientListSchema', exclude=['recipes']))
+
     class Meta:
         fields = ('id', 'recipe_name', 'preparation_time', 'cooking_time', 'process', 'date_created', 'user_id', 'ingredient_list_id')
+        ordered = True
