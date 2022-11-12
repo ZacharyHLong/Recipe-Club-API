@@ -23,8 +23,9 @@ class Recipe(db.Model):
 
 class RecipeSchema(ma.Schema):
     user = fields.Nested('UserSchema', only=['username'])
-    ingredient_lists = fields.List(fields.Nested('IngredientListSchema', exclude=['recipes']))
+    ingredient_lists = fields.List(fields.Nested("IngredientListSchema", only=["measurement", "ingredient"]))
 
     class Meta:
-        fields = ('id', 'recipe_name', 'preparation_time', 'cooking_time', 'process', 'date_created', 'user_id', 'ingredient_list_id')
+        fields = ('id', 'recipe_name', 'preparation_time', 'cooking_time', 'process', 'date_created', 'user', 'ingredient_lists')
         ordered = True
+

@@ -3,9 +3,8 @@ from init import db, bcrypt
 from datetime import date
 from models.users import User
 from models.recipes import Recipe
-from models.ingredients import Ingredient, IngredientList
-
-
+from models.ingredients import Ingredient 
+from models.ingredient_list import IngredientList
 
 
 db_commands = Blueprint('db', __name__)
@@ -69,6 +68,7 @@ def seed_db():
             date_created = date.today(),
             user = users[2],
         ),
+
         Recipe(
             id = 1001,
             recipe_name = "Pasta Carbonara",
@@ -79,6 +79,7 @@ def seed_db():
             date_created = date.today(),
             user = users[1],
         ),
+
         Recipe(
             id = 1002,
             recipe_name = "Classic Bacon and Eggs",
@@ -88,7 +89,19 @@ def seed_db():
             process = "Fry bacon in a pan on medium-low flame until they are crispy. Transfer them into a plate. Use the same pan to cook eggs. Crack eggs in the pan and cook them as you like; sunny side up. Cover the pan so that the egg cooks properly. Add seasoning and garnish with chopped fresh parsley. Serve bacon and eggs hot.",
             date_created = date.today(),
             user = users[1],
-        )
+        ),
+
+        Recipe(
+            id = 1003,
+            recipe_name = "Stir fry",
+            preparation_time = "20 mins",
+            cooking_time = "10 mins",
+            servings = 4,
+            process = "Finely chop or slice the vegetables into pieces roughly the same size. Slice the carrots diagonally, slice the baby corn, cut the broccoli into small florets, then slice the stem, and finely slice the peppers, cabbage or pak choi. Heat the oil in a large frying pan or wok, then fry the garlic and ginger for 1 min. Add the veg and toss to coat. Fry for 2-3 mins, then add the soy sauce and chilli sauce, if using, and mix well. Cook for 2-3 mins more until the veg is tender. Stir in the prawns, salmon or chicken and heat through. Serve over the noodles.",
+            date_created = date.today(),
+            user = users[3],
+        ),
+
     ]
 
     db.session.add_all(recipes)
@@ -365,7 +378,43 @@ def seed_db():
             recipe = recipes[2],
             measurement = "to taste",
             ingredients = ingredients[13]
-        )       
+        ),
+    # stir fry
+        IngredientList(
+            recipe = recipes[3],
+            measurement = "250 grams",
+            ingredients = ingredients[21]
+        ),
+        IngredientList(
+            recipe = recipes[3],
+            measurement = "250 grams",
+            ingredients = ingredients[22]
+        ),
+        IngredientList(
+            recipe = recipes[3],
+            measurement = "2",
+            ingredients = ingredients[5]
+        ),
+        IngredientList(
+            recipe = recipes[3],
+            measurement = "1cm",
+            ingredients = ingredients[20]
+        ),
+        IngredientList(
+            recipe = recipes[3],
+            measurement = "200 grams",
+            ingredients = ingredients[23]
+        ),
+        IngredientList(
+            recipe = recipes[3],
+            measurement = "200 grams cooked",
+            ingredients = ingredients[24]
+        ),
+        IngredientList(
+            recipe = recipes[3],
+            measurement = "2 tablespoons",
+            ingredients = ingredients[25]
+        )                              
     ]
     db.session.add_all(ingredient_lists)
     db.session.commit()
