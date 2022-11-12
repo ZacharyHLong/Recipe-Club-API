@@ -23,9 +23,10 @@ class IngredientList(db.Model):
 
     #foreign keys
     ingredient_id = db.Column(db.Integer, db.ForeignKey("ingredients.id"), nullable=False)
+    recipe_id = db.Column(db.Integer, db.ForeignKey("recipes.id"), nullable=False)
 
     # back populates
-    ingredients = db.relationship("Ingredient", back_populates="ingredient_list")
+    ingredients = db.relationship("Ingredient", back_populates="ingredient_lists")
     recipes = db.relationship("Recipe", back_populates="ingredient_lists")
 
 class IngredientListSchema:
