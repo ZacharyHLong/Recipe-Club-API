@@ -10,12 +10,14 @@ from flask_jwt_extended import get_jwt_identity, jwt_required
 
 recipes_bp = Blueprint('recipes', __name__, url_prefix='/recipes')
 
+
 # view all recipes in the database
 @recipes_bp.route("/", methods=['GET'])
 def recent():
     stmt = db.select(Recipe).order_by(Recipe.date_created.desc(), Recipe.recipe_name)
     recipes = db.session.scalars(stmt).all()
-    return RecipeSchema(many=True).dump(recipes)
+    return RecipeSchema(many=True).dump(recipes), 200
+
 
 # view all recipes created by a user
 @recipes_bp.route("/<int:user_id>/", methods=['GET'])
@@ -23,17 +25,17 @@ def author(user_id):
     stmt = db.select(Recipe).filter_by(user_id=user_id)
     recipes = db.session.scalars(stmt).all()
     if recipes:
-        return RecipeSchema(many=True).dump(recipes)
+        return RecipeSchema(many=True).dump(recipes), 200
     else:
-        return{'error': f'No recipes were found that match the user id provided'}
+        return{'error': f'No recipes were found that match the user id provided'}, 400
 
 
 # view only a single recipe
-@recipes_bp.route("/only/<int:id>/", methods=['GET'])
-def single_recipe(id):
+@recipes_bp.route("/<int:user_id>/<int:id>/", methods=['GET'])
+def single_recipe(user_id, id):
     stmt = db.select(Recipe).filter_by(id=id)
     recipe = db.session.scalar(stmt)
-    return RecipeSchema().dump(recipe)
+    return RecipeSchema().dump(recipe), 200
 
 
 
@@ -57,13 +59,38 @@ def new_recipe():
         db.session.commit()
         return RecipeSchema().dump(recipe), 201
     except KeyError:
-        return {"error": "Please ensure that every recipe property has been defined."}, 409
+        return {"error": "Please ensure that every recipe property has been defined."}, 400
+
+
+# update a recipe entry (admin only)
+@recipes_bp.route('/<int:user_id>/<int:id>/', methods=['PUT', 'PATCH'])
+@jwt_required()
+def update_one_recipe(user_id, id):
+    admin_test()
+    data = RecipeSchema().load(request.json)
+    stmt = db.select(Recipe).filter_by(id=id)
+    recipe = db.session.scalar(stmt)
+    try:
+        if recipe:
+
+            recipe.recipe_name = request.json["recipe_name"] or recipe.recipe_name
+            recipe.preparation_time = request.json["preparation_time"] or recipe.preparation_time
+            recipe.cooking_time = request.json["cooking_time"] or recipe.cooking_time
+            recipe.servings = request.json["servings"] or recipe.servings
+            recipe.process = request.json["process"] or recipe.process
+
+            db.session.commit()
+            return RecipeSchema().dump(recipe)
+        else:
+            return{'error': f'Recipe not found with an id of {id}'}, 404
+    except KeyError:
+        return {"error": "Please include each recipe property (even if they are not being changed)."}, 400
 
 
 # delete recipe (admin only)
-@recipes_bp.route("/only/<int:id>/del/", methods=["DELETE"])
+@recipes_bp.route("/<int:user_id>/<int:id>/", methods=["DELETE"])
 @jwt_required()
-def delete_recipe(id):
+def delete_recipe(user_id, id):
     admin_test()
     stmt = db.select(Recipe).filter_by(id=id)
     recipe = db.session.scalar(stmt)

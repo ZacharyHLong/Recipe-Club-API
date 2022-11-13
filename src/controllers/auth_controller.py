@@ -16,7 +16,7 @@ def get_users():
     admin_test()
     stmt = db.select(User)
     users = db.session.scalars(stmt)
-    return UserSchema(many=True, exclude=["password"]).dump(users)
+    return UserSchema(many=True, exclude=["password"]).dump(users), 200
 
 # Route to register a new user
 @auth_bp.route("/register/", methods=["POST"])
@@ -32,9 +32,9 @@ def register():
         db.session.commit()
         return UserSchema(exclude=["password"]).dump(user), 201
     except IntegrityError:
-        return {"error": "Username has already been registered. Please try a different username."}, 409
+        return {"error": "Username has already been registered. Please try a different username."}, 404
     except KeyError:
-        return {"error": "Please ensure that a username, first name and password have been provided."}, 409
+        return {"error": "Please ensure that a username, first name and password have been provided."}, 400
 
 
 # Route to login into an existing user and obtain a token
@@ -57,7 +57,7 @@ def user_info(username):
     admin_test()
     stmt = db.select(User).filter_by(username=username)
     user = db.session.scalar(stmt)
-    return UserSchema(exclude=["password"]).dump(user)
+    return UserSchema(exclude=["password"]).dump(user), 200
 
 
 # delete a user from the database (admin)
@@ -72,7 +72,7 @@ def delete_user(username):
         db.session.commit()
         return {"message": f"{username} has been deleted"}, 200
     else:
-        return {"message": f"{username} does not exist in the database"}, 404
+        return {"message": f"{username} does not exist in the database"}, 400
 
 
 

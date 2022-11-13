@@ -11,7 +11,7 @@ ingredients_bp = Blueprint('ingredients', __name__, url_prefix='/ingredients')
 def ingredients():
     stmt = db.select(Ingredient)
     ingredients = db.session.scalars(stmt).all()
-    return IngredientSchema(many=True).dump(ingredients)
+    return IngredientSchema(many=True).dump(ingredients), 200
 
 # add new ingredient to the database requires authentication to add an ingredient
 @ingredients_bp.route("/", methods=["POST"])
@@ -26,4 +26,4 @@ def new_ingredients():
         db.session.commit()
         return IngredientSchema().dump(ingredient), 201
     except IntegrityError:
-        return {"error": "That ingredient is already in the database"}, 409
+        return {"error": "That ingredient is already in the database"}, 400

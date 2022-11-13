@@ -24,9 +24,9 @@ def new_recipe():
             )
         db.session.add(ingredient_list)
         db.session.commit()
-        return(f"Successfully added ingredient to the list")
+        return(f"Successfully added ingredient to the list"), 201
     except KeyError:
-        return {"error": "A recipe id and an ingredient id must be provided."}, 409
+        return {"error": "A recipe id and an ingredient id must be provided."}, 400
 
         
     

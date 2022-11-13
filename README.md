@@ -30,7 +30,14 @@ An ORM has a collection of built-in queries that can be used on a database (with
 
 ## **Document all endpoints for the API (R5)**
 
-ss
+### /users/
+- Methods:
+- Arguments:
+- Description:
+- Authentication:
+- Authorization:
+- Request Body:
+- Response Body:
 
 ---
 

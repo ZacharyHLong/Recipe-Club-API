@@ -23,12 +23,12 @@ class Recipe(db.Model):
 
 
 class RecipeSchema(ma.Schema):
-    user = fields.Nested('UserSchema', only=['username'])
+    user = fields.Nested("UserSchema", only=["username", "id"])
     ingredient_lists = fields.List(fields.Nested("IngredientListSchema"))
 
     recipe_name = fields.String(required=True, validate=Length(min=1, error="Reicpe name needs to be at least one character long."))
 
     class Meta:
-        fields = ('id', 'recipe_name', 'preparation_time', 'cooking_time', 'servings', 'process', 'date_created', 'user', 'ingredient_lists')
+        fields = ('id', 'recipe_name', 'preparation_time', 'cooking_time', 'servings', 'process', 'date_created', 'user_id', 'ingredient_lists')
         ordered = True
 
