@@ -43,7 +43,7 @@ An ORM has a collection of built-in queries that can be used on a database (with
 
 ## **ERD(R6)**
 
-ss
+![erd](img/erd.png)
 
 ---
 
