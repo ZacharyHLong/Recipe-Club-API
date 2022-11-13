@@ -17,6 +17,7 @@ def ingredients():
 @ingredients_bp.route("/", methods=["POST"])
 @jwt_required()
 def new_ingredients():
+    data = IngredientSchema().load(request.json)
     try:
         ingredient = Ingredient(
             name = request.json["name"],

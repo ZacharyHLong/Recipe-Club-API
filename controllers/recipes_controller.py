@@ -41,6 +41,7 @@ def single_recipe(id):
 @recipes_bp.route("/", methods=['POST'])
 @jwt_required()
 def new_recipe():
+    data = RecipeSchema().load(request.json)
     current_user = get_jwt_identity()
     try:
         recipe = Recipe(

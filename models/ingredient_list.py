@@ -19,6 +19,7 @@ class IngredientList(db.Model):
 class IngredientListSchema(ma.Schema):
     recipe = fields.Nested("RecipeSchema", only=["recipe_name"])
     ingredient = fields.Nested("IngredientSchema", only=["name"])
+    
     class Meta:
         fields = ("id", "measurement", "ingredient", "recipe")
         ordered = True
