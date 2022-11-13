@@ -49,7 +49,15 @@ An ORM has a collection of built-in queries that can be used on a database (with
 
 ## **Detail any thrid-party/packages the app uses (R7)**
 
-ssssssc
+The third party services/pypi packages used in my app are:
+- Flask
+- SQLAlchemy
+- psycopg2
+- Marshmallow
+- Bcrypt
+- JWT
+- DateTime
+- 
 
 ---
 
