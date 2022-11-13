@@ -7,12 +7,14 @@ from flask_jwt_extended import get_jwt_identity, jwt_required
 
 ingredient_lists_bp = Blueprint('ingredient_lists', __name__, url_prefix='/ingredient_lists')
 
+# obtain a list of all ingredient_lists
 @ingredient_lists_bp.route("/", methods=["GET"])
 def ingredient_list():
     stmt = db.select(IngredientList).order_by(IngredientList.id.asc())
     result = db.session.scalars(stmt)
     return IngredientListSchema(many=True).dump(result), 200
 
+# add ingredient and recipe to ingredient_lists
 @ingredient_lists_bp.route("/", methods=['POST'])
 @jwt_required()
 def new_recipe():

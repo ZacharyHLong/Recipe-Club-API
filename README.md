@@ -2,11 +2,11 @@
 
 ## **Identification of the problem you are trying to solve by building this partiular app. And why? (R1, R2)**  
   
-I like to cook. Like, I like to cook a LOT. I also really like trying new recipes. I often find myself scouring the internet for recipes, only to be astounded by the endless possibilities and lack of organisation on most recipe sites. After scouring the internet for the perfect recipe, I'll eventually give up and just select one whatever's on my screen by that point.
+I like to cook. Like, I like to cook a LOT. I also really like trying new recipes. I often find myself scouring the internet for recipes, only to be astounded by the endless possibilities and lack of organisation on most recipe sites. After scouring the internet for the perfect recipe, I'll eventually give up and just select whatever's on my screen by that point.
   
 On my recipe searches, I encounter way too many recipe blogs that bombard you with a life story of minimal importance, requiring way too much scrolling to get to the actual recipe at the bottom of the page.  
 
-These unfortunately frequent recipe-hunting experiences had me thinking about the need for some sort of social recipe sharing API, in which users could upload and share their collection of recipes. Creating an API that's focused on what actually matters (i.e. the recipe!) and presenting it right where you would want to see it (i.e. the top of the page!) seems like a thing the world of online recipes needs.
+These, unfortunately, frequent recipe-hunting experiences had me thinking about the need for some sort of social recipe sharing API, in which users could upload and share their collection of recipes. Creating an API that's focused on what actually matters (i.e. the recipe!) and presenting it right where you would want to see it (i.e. the top of the page!) seems like a thing the world of online recipes needs.
 
 ---
 
@@ -14,9 +14,9 @@ These unfortunately frequent recipe-hunting experiences had me thinking about th
 
 For this app, I have chosen to use PostgresSQL. PostgresSQL belongs to the category of Relational Database Management System's (RDBMS). RDBMS involve the use of the Structured Database Query Language (SQL). SQL allows a database system to access and manipulate the databases within. Notably, information redundancy and real-time flexibility are distinct perks of using a RDBMS over a non-relational DBMS. Information can be easily normalized, and when dealing with bigger databases RDBMS's can maintain better data consistency.
 
-Why PostgresSQL though? PostgresSQL is open-source software, meaning that anyone can use it for whatever their intended purpose is. PostgresSQL has a large community of dedicated developers behind it, along with an extensive history and strong reputation for its architecture, data integrity and extensibility. As a student, being able to access such a powerful RDBMS for free is highly appreciated.  
+Why PostgresSQL though? PostgresSQL is open-source software, meaning that anyone can use it for whatever their intended purpose is for free!. PostgresSQL has a large community of dedicated developers behind it, along with an extensive history and strong reputation for its architecture, data integrity and extensibility. As a student, being able to access such a powerful RDBMS for free is highly appreciated and easily my go to choice.  
 
-Whilst not many, there are a few drawbacks to PostgresSQL. PostgresSQL has been found to be slower than another RDBMS, MySQL. MySQL also has a larger library of supported open-source apps than PostgresSQL. However, for my app neither of these drawbacks were considered to be much of a problem.
+Whilst not many, there are still a few drawbacks to PostgresSQL. PostgresSQL has been found to be slower than another RDBMS, MySQL. MySQL also has a larger library of supported open-source apps than PostgresSQL. However, for my app neither of these drawbacks were considered to be much of a problem. It's when dealing with much larger and grander databases do these effects become more noticeable.
 
 ---
 
@@ -26,7 +26,7 @@ An ORM (Object-Relational-Mapper) allows you to interact with relational databas
 
 An ORM has a collection of built-in queries that can be used on a database (within the chosen ORM language), further saving time for the developer. Removing the necessity for constant switching between languages can lead to quicker production times.
 
-ORM's generate objects which map to tables in the selected database. Once these connections have been made the ORM acts as an abstraction layer for the application towards the database, allowing the developer to code away in the preferred language, which can then be reflected in the database.
+ORM's generate objects which map to tables in the selected database. Once these connections have been made the ORM acts as an abstraction layer for the application towards the database, allowing the developer to code away in the preferred language, which can then be reflected in the database. Essentially, the developer is still writing/developing queries, however, they are within their own choice of programming language.
 
 ---
 
@@ -697,7 +697,7 @@ The third-party services/packages used in my app are:
 ### Ingredients
 
 - The ingredients model has id, name, and ingredient_lists columns.
-- The ingredients_list column is a relationship with the ingredients table. 
+- The ingredients_list column is a relationship with the ingredients table.
 
 ### Ingredient Lists
 
@@ -717,7 +717,6 @@ The third relationship is between the ingredients table and the ingredient_lists
 
 The last two relationships were both one-to-many (with both directing to the ingredients_list table), however this designed in order to satisfy a many-to-many relationship that exists between recipes and ingredients. As you cannot have a direct relationship with a many-to-many relationship, it is necessary to have a join table. The join table has two forieng keys from each of the other two tables, allowing for the ingredient to direct to recipes and vice versa.
 
-
 ---
 
 ## **Describe the way tasks are allocated and tracked in your project(R10)**
@@ -733,4 +732,5 @@ I have to be honest and admit my board was managed quite chaotically, in that my
 ### [Trello Link](https://trello.com/invite/b/umepIf8e/ATTI0a8954c8da0605a8e3c74d3f66225f1c48BE9CBE/api-assignment)
 
 ### [GitHub](https://github.com/ZacharyHLong/api_assignment)
+
 ---
