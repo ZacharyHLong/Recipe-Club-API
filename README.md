@@ -111,6 +111,14 @@ The last two relationships were both one-to-many (with both directing to the ing
 
 ## **Describe the way tasks are allocated and tracked in your project(R10)**
 
-ss
+To manage the development of the project, I created a trello board which outlined:
+
+- The tasks to be done.
+- Which tasks were currenlty being completed.
+- Which tasks had been finished.
+  
+I have to be honest and admit my board was managed quite chaotically, in that my original planning wasn't sufficient to develop an app with and required a mid-assignment makeover. There were several archives/deletes of cards, and ultimately the board reflects a slightly disorganised and chaotic approach to the assignment. I still developed checklists to help determine what the crucial elements of the project were, and checked them off as they were completed. Reflecting on my management of tasks, I think I needed to be more organised and have a more concrete plan when planning out future tasks.
+
+### [Trello Link](https://trello.com/invite/b/umepIf8e/ATTI0a8954c8da0605a8e3c74d3f66225f1c48BE9CBE/api-assignment)
 
 ---
