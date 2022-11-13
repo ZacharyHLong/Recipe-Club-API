@@ -13,6 +13,6 @@ class Ingredient(db.Model):
 class IngredientSchema(ma.Schema):
 
     class Meta:
-        fields = ("id", "name")
+        fields = ("name",)
 
 

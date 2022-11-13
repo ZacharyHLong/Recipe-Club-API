@@ -24,29 +24,28 @@ def drop_db():
 def seed_db():
     users = [
         User(
-            id = 0,
             username = "HEADCHEF",
             password = bcrypt.generate_password_hash("password123").decode("utf-8"),
             is_admin = True
         ),
         
         User(
-            id = 1,
             username = "JiroDreams",
-            password = bcrypt.generate_password_hash("sharpen").decode("utf-8"),
+            first_name = "Jiro",
+            password = bcrypt.generate_password_hash("sharpennn").decode("utf-8"),
             is_admin = False
         ),
 
         User(
-            id = 2,
             username = "Hells_Kitchen",
+            first_name = "Gordon",
             password = bcrypt.generate_password_hash("gordonramsey").decode("utf-8"),
             is_admin = False
         ),
 
         User(
-            id = 3,
             username = "metalfingers",
+            first_name = "DOOM",
             password = bcrypt.generate_password_hash("calamusroot").decode("utf-8"),
             is_admin = False
         )
@@ -235,185 +234,185 @@ def seed_db():
         IngredientList(
             recipe = recipes[0],
             measurement = "500 grams",
-            ingredients = ingredients[0]
+            ingredient = ingredients[0]
         ),
         IngredientList(
             recipe = recipes[0],
             measurement = "5",
-            ingredients = ingredients[1]
+            ingredient = ingredients[1]
         ),
         IngredientList(
             recipe = recipes[0],
             measurement = "4 medium",
-            ingredients = ingredients[2]
+            ingredient = ingredients[2]
         ),
         IngredientList(
             recipe = recipes[0],
             measurement = "4 cans (400ml)",
-            ingredients = ingredients[3]
+            ingredient = ingredients[3]
         ),
         IngredientList(
             recipe = recipes[0],
             measurement = "150 grams",
-            ingredients = ingredients[4]
+            ingredient = ingredients[4]
         ),
         IngredientList(
             recipe = recipes[0],
             measurement = "1/2 cup",
-            ingredients = ingredients[6]
+            ingredient = ingredients[6]
         ),
         IngredientList(
             recipe = recipes[0],
             measurement = "8",
-            ingredients = ingredients[5]
+            ingredient = ingredients[5]
         ),
         IngredientList(
             recipe = recipes[0],
             measurement = "1/4 cup",
-            ingredients = ingredients[7]
+            ingredient = ingredients[7]
         ),
         IngredientList(
             recipe = recipes[0],
             measurement = "1/4 cup",
-            ingredients = ingredients[8]
+            ingredient = ingredients[8]
         ),
         IngredientList(
             recipe = recipes[0],
             measurement = "1 tablespoon",
-            ingredients = ingredients[9]
+            ingredient = ingredients[9]
         ),
         IngredientList(
             recipe = recipes[0],
             measurement = "1/4 cup minced",
-            ingredients = ingredients[10]
+            ingredient = ingredients[10]
         ),
         IngredientList(
             recipe = recipes[0],
             measurement = "4",
-            ingredients = ingredients[11]
+            ingredient = ingredients[11]
         ),
         IngredientList(
             recipe = recipes[0],
             measurement = "1 teaspoon",
-            ingredients = ingredients[12]
+            ingredient = ingredients[12]
         ),     
         IngredientList(
             recipe = recipes[0],
             measurement = "1 teaspoon",
-            ingredients = ingredients[13]
+            ingredient = ingredients[13]
         ),    
         IngredientList(
             recipe = recipes[0],
             measurement = "400 grams",
-            ingredients = ingredients[14]
+            ingredient = ingredients[14]
         ),    
         IngredientList(
             recipe = recipes[0],
             measurement = "1 tablespoon",
-            ingredients = ingredients[15]
+            ingredient = ingredients[15]
         ),    
         # carbonara
         IngredientList(
             recipe = recipes[1],
             measurement = "1 tablespoon",
-            ingredients = ingredients[19]
+            ingredient = ingredients[19]
         ),    
         IngredientList(
             recipe = recipes[1],
             measurement = "200 grams",
-            ingredients = ingredients[18]
+            ingredient = ingredients[18]
         ),    
         IngredientList(
             recipe = recipes[1],
             measurement = "2",
-            ingredients = ingredients[5]
+            ingredient = ingredients[5]
         ),    
         IngredientList(
             recipe = recipes[1],
             measurement = "3 or 4",
-            ingredients = ingredients[16]
+            ingredient = ingredients[16]
         ),    
         IngredientList(
             recipe = recipes[1],
             measurement = "1 cup",
-            ingredients = ingredients[17]
+            ingredient = ingredients[17]
         ),    
         IngredientList(
             recipe = recipes[1],
             measurement = "400 grams",
-            ingredients = ingredients[14]
+            ingredient = ingredients[14]
         ),
         IngredientList(
             recipe = recipes[1],
             measurement = "1 pinch",
-            ingredients = ingredients[12]
+            ingredient = ingredients[12]
         ),
         IngredientList(
             recipe = recipes[1],
             measurement = "8 good cracks",
-            ingredients = ingredients[13]
+            ingredient = ingredients[13]
         ),    
     # bacon and eggs
         IngredientList(
             recipe = recipes[2],
             measurement = "8",
-            ingredients = ingredients[16]
+            ingredient = ingredients[16]
         ),
         IngredientList(
             recipe = recipes[2],
             measurement = "150 grams",
-            ingredients = ingredients[18]
+            ingredient = ingredients[18]
         ),
         IngredientList(
             recipe = recipes[2],
             measurement = "1/4 cup",
-            ingredients = ingredients[10]
+            ingredient = ingredients[10]
         ),
         IngredientList(
             recipe = recipes[2],
             measurement = "to taste",
-            ingredients = ingredients[12]
+            ingredient = ingredients[12]
         ),  
         IngredientList(
             recipe = recipes[2],
             measurement = "to taste",
-            ingredients = ingredients[13]
+            ingredient = ingredients[13]
         ),
     # stir fry
         IngredientList(
             recipe = recipes[3],
             measurement = "250 grams",
-            ingredients = ingredients[21]
+            ingredient = ingredients[21]
         ),
         IngredientList(
             recipe = recipes[3],
             measurement = "250 grams",
-            ingredients = ingredients[22]
+            ingredient = ingredients[22]
         ),
         IngredientList(
             recipe = recipes[3],
             measurement = "2",
-            ingredients = ingredients[5]
+            ingredient = ingredients[5]
         ),
         IngredientList(
             recipe = recipes[3],
             measurement = "1cm",
-            ingredients = ingredients[20]
+            ingredient = ingredients[20]
         ),
         IngredientList(
             recipe = recipes[3],
             measurement = "200 grams",
-            ingredients = ingredients[23]
+            ingredient = ingredients[23]
         ),
         IngredientList(
             recipe = recipes[3],
             measurement = "200 grams cooked",
-            ingredients = ingredients[24]
+            ingredient = ingredients[24]
         ),
         IngredientList(
             recipe = recipes[3],
             measurement = "2 tablespoons",
-            ingredients = ingredients[25]
+            ingredient = ingredients[25]
         )                              
     ]
     db.session.add_all(ingredient_lists)
