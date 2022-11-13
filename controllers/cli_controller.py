@@ -58,7 +58,6 @@ def seed_db():
 
     recipes = [
         Recipe(
-            id = 1000,
             recipe_name = "Hells Kitchen Secret Sphaghetti",
             preparation_time = "30 mins",
             cooking_time = "8 hours",
@@ -69,7 +68,6 @@ def seed_db():
         ),
 
         Recipe(
-            id = 1001,
             recipe_name = "Pasta Carbonara",
             preparation_time = "10 mins",
             cooking_time = "30 mins",
@@ -80,7 +78,6 @@ def seed_db():
         ),
 
         Recipe(
-            id = 1002,
             recipe_name = "Classic Bacon and Eggs",
             preparation_time = "10 mins",
             cooking_time = "10 mins",
@@ -91,7 +88,6 @@ def seed_db():
         ),
 
         Recipe(
-            id = 1003,
             recipe_name = "Stir fry",
             preparation_time = "20 mins",
             cooking_time = "10 mins",

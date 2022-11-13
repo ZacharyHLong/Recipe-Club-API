@@ -9,9 +9,11 @@ from models.users import User, UserSchema
 auth_bp = Blueprint("auth", __name__, url_prefix="/auth")
 
 
-# Route to obtain a list of users and their recipes
+# Route to obtain a list of users and their recipes (admin)
 @auth_bp.route("/users/", methods=["GET"])
+@jwt_required()
 def get_users():
+    admin_test()
     stmt = db.select(User)
     users = db.session.scalars(stmt)
     return UserSchema(many=True, exclude=["password"]).dump(users)
@@ -74,8 +76,6 @@ def delete_user(username):
 
 
 
-
-
 # function to authorise admin actions
 def admin_test():
     user_id = get_jwt_identity()
@@ -83,3 +83,4 @@ def admin_test():
     user = db.session.scalar(stmt)
     if not user.is_admin:
         abort(401)
+
