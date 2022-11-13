@@ -17,7 +17,7 @@ class Recipe(db.Model):
     user_id = db.Column(db.Integer, db.ForeignKey("users.id"), nullable=False)
 
 
-    # deletes recipe list if recipe is deleted (cross-check)!!!
+    # deletes recipe list if recipe is deleted
     user = db.relationship("User", back_populates="recipes")
     ingredient_lists = db.relationship("IngredientList", back_populates="recipe", cascade="all, delete")
 
