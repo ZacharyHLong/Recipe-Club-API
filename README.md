@@ -49,7 +49,7 @@ An ORM has a collection of built-in queries that can be used on a database (with
 
 ## **Detail any thrid-party/packages the app uses (R7)**
 
-ss
+ssssssc
 
 ---
 
